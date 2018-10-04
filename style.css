@@ -1,19 +1,21 @@
+:root {
+    --primary-color: rgb(230, 43, 34);
+}
+
 #grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .logo-container {
-    border: 1px solid red;
     height: 800px;  /* change height to make it dynamic */
     text-align: center;
+    border: 1px solid red;
 }
 
 .container-info {
     padding-top: 25%; /*will have to be changed when the heigth is changed */
 }
-
-
 
 .container-info p {
     padding-right: 25%;
@@ -21,20 +23,36 @@
 }
 
 .signin-container {
-    border: 1px solid black;
-    text-align: center;
     padding-top: 25%;
+    text-align: center;
+    border: 1px solid black;
+    
 }
 
 .login-information > div {
     padding-top: 10px;
 }
 
+input {
+    width: 30%;
+    height: 30px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid grey; /* grey is an ugly color change it*/
+}
 
 #button {
-    border: 1px solid green;
     width: 30%;
-    border-radius: 25px;
-    background-color: red;
+    height: 30px;
     color: white;
+    
+    border-radius: 25px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    box-shadow: 0 8px 6px -7px  var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
 }
