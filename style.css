@@ -1,20 +1,47 @@
 :root {
-    --primary-color: rgb(230, 43, 34);
+    /* --primary-color: rgb(230, 43, 34); */
+    --primary-color:  rgb(230, 72, 87);
+    --gray-text-color: rgb(193, 193, 193);
 }
 
 body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+.nav-bar {
+    height: 70px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background-color: rgb(85, 0, 0);
+}
+
+.nav-bar i {
+    padding-left: 10px;
+}
+
+.nav-bar li {
+    margin-left: 2em;
+    list-style: none;
+    display: inline;
+}
+
 #grid-container {
     display: grid;
+    height:700px;
+    /* padding-top: 50px; may have to change this */
     grid-template-columns: 1fr 1fr;
 }
 
 .logo-container {
-      /* change height to make it dynamic */
+    color: white;
     text-align: center;
-    border: 1px solid red;
+    background-size: 100% 100%;
+    background-image: url('windo.jpg');
+    background-image: linear-gradient(rgba(20, 20, 20, 0.45), 
+                                      rgba(20, 20, 20, 0.45)),
+                                        url('window.jpg');
+    /* background-image: linear-gradient(rgba(85, 0, 0, 0.45), rgba(85, 0, 0, 0.45)), url('window.jpg'); */
 }
 
 .container-info {
@@ -27,15 +54,14 @@ body {
 }
 
 .signin-container {
-    /* padding-top: 25%; */
+    padding-top: 7%;
     text-align: center;
-    border: 1px solid black;
-    
 }
 
-.signin-icon {
-    padding: 10px;
-    color: var(--primary-color);
+.signin-border {
+    height: 90%;
+    margin-right: 15%;
+    margin-left: 15%;
 }
 
 
@@ -55,7 +81,7 @@ input {
     width: 30%;
     height: 30px;
     color: white;
-    
+
     border-radius: 25px;
     border: 1px solid var(--primary-color);
     background-color: var(--primary-color);
@@ -63,6 +89,7 @@ input {
 }
 
 a {
+    font-weight: 600;
     text-decoration: none;
     color: var(--primary-color);
 }
@@ -70,5 +97,8 @@ a {
 hr {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+        to right, rgba(0, 0, 0, 0), 
+        rgba(0, 0, 0, 0.75), 
+        rgba(0, 0, 0, 0));
 }
