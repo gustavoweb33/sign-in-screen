@@ -15,6 +15,8 @@ passwordInput.addEventListener('input', function(e) {
     user.password = e.target.value;
 });
 
+console.log(user)
+
 
 
 //font-family: 'Noto Sans', sans-serif;

@@ -1,13 +1,38 @@
-body {
-    background-color: pink;
+
+
+a i {
+    color: white;
 }
 
-form {
+.nav-bar {
+    height: 70px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background-color: rgb(85, 0, 0);
+}
+
+.nav-bar i {
+    padding-left: 10px;
+}
+
+.nav-bar li {
+    margin-left: 2em;
+    list-style: none;
+    display: inline;
+}
+
+
+form { 
+    background-color: rgb(153, 76, 76);
     border: 1px solid blue;
-    /* background-color: yellow; */
+    width: 63%;
+    height: 500px;
+    margin-left: 20%;
 }
 
 .grid-container{
+   background-color: rgb(186, 140, 140);
     width: 100%;
     display: grid;
     grid-gap: 10px 20px;
