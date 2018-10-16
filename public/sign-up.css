@@ -1,0 +1,51 @@
+body {
+    background-color: pink;
+}
+
+form {
+    border: 1px solid blue;
+    /* background-color: yellow; */
+}
+
+.grid-container{
+    width: 100%;
+    display: grid;
+    grid-gap: 10px 20px;
+
+    align-items: center;
+    border: 1px solid brown;
+    grid-template-columns: 1fr 3fr 1fr 3fr;
+
+    margin-top: 10%;
+    height:300px;
+
+    /* background-color: red; */
+}
+
+h3 {
+    display: grid;
+    justify-items: end;
+}
+
+input {
+
+    width: 80%;
+    height: 20px;
+}
+
+
+button {
+    color: white; 
+    width: 400px;
+    height: 30px;  
+
+    margin-top: 20px;
+    margin-left: 40%;
+    align-items: center;
+    border-radius: 25px;
+
+    border: 1px solid royalblue;
+    background-color: royalblue;
+    box-shadow: 0 8px 6px -7px royalblue;
+}
+
