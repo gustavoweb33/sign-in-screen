@@ -1,0 +1,167 @@
+/* social media icons need to be added */
+
+:root {
+    
+    --primary-color:  rgba(230, 72, 87, 0.9);
+    --gray-text-color: rgb(193, 193, 193);
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.nav-bar {
+    height: 70px;
+    display: flex;
+    color: white;
+    align-items: center;
+    background-color: #011627;
+}
+
+.nav-bar i {
+    padding-left: 10px;
+}
+
+.nav-bar li {
+    margin-left: 2em;
+    list-style: none;
+    display: inline;
+}
+
+#grid-container {
+    display: grid;
+    height:700px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.logo-container {
+    color: white;
+    text-align: center;
+    background-size: 100% 100%;
+   
+    background-image: linear-gradient(rgba(20, 20, 20, 0.45), 
+                                      rgba(20, 20, 20, 0.45)),
+                                        url('window.jpg');
+}
+
+.container-info {
+    padding-top: 25%; /*will have to be changed when the heigth is changed */
+}
+
+.container-info p {
+    padding-right: 25%;
+    padding-left: 25%;
+}
+
+.signin-container {
+    padding-top: 7%;
+    text-align: center;
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.signin-border {
+    height: 90%;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+
+.login-information > div {
+    padding-top: 10px;
+}
+
+input {
+    width: 50%;
+    height: 30px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid grey; /* grey is an ugly color change it*/
+}
+
+#button {
+    width: 47%;
+    height: 30px;
+    color: white;
+
+    border-radius: 25px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    box-shadow: 0 8px 6px -7px  var(--primary-color);
+}
+
+a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+        to right, rgba(0, 0, 0, 0), 
+        rgba(230, 72, 87, 0.75), 
+        rgba(0, 0, 0, 0));
+}
+
+
+/* media queries */
+
+@media (max-width: 1250px) {
+    input {
+        width: 60%;
+    }
+
+    #button {
+        width: 55%;
+    }
+}
+
+@media (max-width: 1025px) {
+
+    #grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+    }
+
+    .signin-container {
+        border-right-color: black; 
+    }
+}
+
+@media (max-width: 920px) {
+
+    .nav-bar {
+        height: 3em;
+
+    }
+
+    .nav-bar i {
+        padding-left: 10px;
+        font-size: 2em;
+    }    
+
+    #grid-container {
+        grid-template-rows: 1fr 2fr;
+    }
+
+    .logo-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        height: 18.75em;
+    }
+
+    .container-info {
+       padding-top: 5%;
+    }
+
+    .signin-container {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
