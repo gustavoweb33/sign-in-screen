@@ -1,37 +1,30 @@
-const user = {
-    username: '',
-    password: ''
-}
-
 const usernameInput = document.querySelector('.username');
 const passwordInput = document.querySelector('.password');
+const submitButton = document.querySelector('#button');
 
+const user = [
+    {
+        username: 'someemail@gmail.com',
+        password: 'Password123'
+    },
+    {
+        username: 'myemail@yahoo.com',
+        password: 'MyPassword9810'
+    },
+];
 
-usernameInput.addEventListener('input',  function(e) {
+usernameInput.addEventListener('input', function (e) {
     user.username = e.target.value;
 });
 
-passwordInput.addEventListener('input', function(e) {
+passwordInput.addEventListener('input', function (e) {
     user.password = e.target.value;
 });
 
-console.log(user)
+submitButton.addEventListener('click', function (e) {
+    e.preventDefault();
+   
+    console.log(user);
+})
 
 
-
-//font-family: 'Noto Sans', sans-serif;
-
-// function toggle(e) {
-//     if(e.target.style.backgroundColor === '') {
-//         usernameInput.style.backgroundColor = 'rgb(206, 225, 255)';
-//     }
-//     else {
-//         e.target.style.backgroundColor = '';
-//     }
-// }
-
-
-
-// usernameInput.addEventListener('click', function(e) {
-//     toggle(e)
-// });
