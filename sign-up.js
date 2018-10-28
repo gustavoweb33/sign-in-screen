@@ -1,5 +1,8 @@
+//when a new object is push into the array it overrides the previous one. need to fix
+
 
 const userSignUp = document.querySelector('#sign-up-form');
+
 const user = [
     {
         firstName: 'gustavo',
@@ -7,7 +10,7 @@ const user = [
         email: 'gustavo@yahoo.com',
         password: 'password1223'
 
-}
+    }
 ];
 
 
@@ -19,17 +22,20 @@ userSignUp.addEventListener('submit', (e) => {
     const lastName = e.target.elements.lastName.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
+ 
+    saveUserSignUp(firstName, lastName, email, password);
 
-    push(firstName, lastName, email, password);
+    window.location.href = 'http://127.0.0.1:5500/html/index.html';
 });
 
-function push(firstName, lastName, email, password) {
+const saveUserSignUp = (firstName, lastName, email, password) => {
     user.push({
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password
     });
+    localStorage.setItem('user', JSON.stringify(user));
 }
 
 
