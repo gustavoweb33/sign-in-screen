@@ -42,20 +42,30 @@ const addNewUser = (firstName, lastName, email, password) => {
     location.assign('/html/index.html');
 }
 
+const checkFullName = (firstName, lastName) => {
+    const regExUser = /^[a-zA-z]+$/;
+    console.log(`first name: ${firstName} ${regExUser.test(firstName)}`);
+    console.log(`last name: ${lastName} ${regExUser.test(lastName)}`);
+}
 
 userSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const firstName = e.target.elements.firstName.value;
     const lastName = e.target.elements.lastName.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
     const confirmedPassword = e.target.elements.confirmedPassword.value;
 
+    checkFullName(firstName, lastName);
+
+
     let passwordResult = comparePasswords(password, confirmedPassword);
     let checkedUser = checkIfUserExits(email);
 
-    console.log(`password-result: ${passwordResult}, checked-user:${checkedUser}`)
+    console.log(`password-result: ${passwordResult}, available-user:${checkedUser}`)
     if (passwordResult && checkedUser) {
         addNewUser(firstName, lastName, email, password);
     }
 });
+
