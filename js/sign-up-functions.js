@@ -8,6 +8,18 @@ let user = getSavedUser();
 
 const comparePasswords = (password, confirmedPassword) => {
     console.log(`password: ${password}, confirmedPass: ${confirmedPassword}`)
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    const testPasswordRegex = passwordRegex.test(password);
+
+    if (testPasswordRegex === false) {
+        console.log('Password does not meet conditions');
+    }
+    else {
+        console.log('Password meets conditions');
+    }
+
+
     if (password !== confirmedPassword) {
         unmatchPassword.textContent = 'Password does not match';
         secondPassword.appendChild(unmatchPassword);
@@ -19,14 +31,14 @@ const comparePasswords = (password, confirmedPassword) => {
 }
 
 const checkIfUserExits = (email) => {
-    console.log(`email: ${email}`);
+    // console.log(`email: ${email}`);
     if (user.find((object) => object.email === email)) {
-        warningParagraph.textContent = 'Email already exists';
-        emailTitle.appendChild(warningParagraph);
+        warningEmailParagraph.textContent = 'Email already exists';
+        emailTitle.appendChild(warningEmailParagraph);
         return false;
     }
 
-    warningParagraph.textContent = '';
+    warningEmailParagraph.textContent = '';
     return true;
 }
 
@@ -63,9 +75,10 @@ userSignUp.addEventListener('submit', (e) => {
     let passwordResult = comparePasswords(password, confirmedPassword);
     let checkedUser = checkIfUserExits(email);
 
-    console.log(`password-result: ${passwordResult}, available-user:${checkedUser}`)
+    // console.log(`password-result: ${passwordResult}, available-user:${checkedUser}`)
     if (passwordResult && checkedUser) {
         addNewUser(firstName, lastName, email, password);
     }
 });
+
 
