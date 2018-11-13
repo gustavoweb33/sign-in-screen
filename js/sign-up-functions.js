@@ -1,25 +1,30 @@
 
 const getSavedUser = () => {
     const userJSON = localStorage.getItem('user');
-    return userJSON ? JSON.parse(userJSON) : [];
+    return userJSON ? JSON.parse(userJSON) : [];    //returns [] if no user exists
 }
 
 let user = getSavedUser();
 
+const checkIfUserExits = (email) => {
+    if (user.find((object) => object.email === email)) {
+        warningEmailParagraph.textContent = 'Email already exists';
+        emailTitle.appendChild(warningEmailParagraph);
+        return false;
+    }
+
+    warningEmailParagraph.textContent = '';
+    return true;
+}
+
+const checkFullName = (firstName, lastName) => {
+    const regExUser = /^[a-zA-z]+$/;
+    console.log(`first name: ${firstName} ${regExUser.test(firstName)}`);
+    console.log(`last name: ${lastName} ${regExUser.test(lastName)}`);
+}
+
+
 const comparePasswords = (password, confirmedPassword) => {
-    console.log(`password: ${password}, confirmedPass: ${confirmedPassword}`)
-
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-    const testPasswordRegex = passwordRegex.test(password);
-
-    if (testPasswordRegex === false) {
-        console.log('Password does not meet conditions');
-    }
-    else {
-        console.log('Password meets conditions');
-    }
-
-
     if (password !== confirmedPassword) {
         unmatchPassword.textContent = 'Password does not match';
         secondPassword.appendChild(unmatchPassword);
@@ -30,17 +35,28 @@ const comparePasswords = (password, confirmedPassword) => {
     return true;
 }
 
-const checkIfUserExits = (email) => {
-    // console.log(`email: ${email}`);
-    if (user.find((object) => object.email === email)) {
-        warningEmailParagraph.textContent = 'Email already exists';
-        emailTitle.appendChild(warningEmailParagraph);
+const checkPasswordRegex = (password) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    const passwordRegexResult = passwordRegex.test(password);
+
+    if (passwordRegexResult === false) {
+        li1.textContent = errMessageArr[0];
+        li2.textContent = errMessageArr[1];
+        li3.textContent = errMessageArr[2];
+        passwordInput.appendChild(li1);
+        passwordInput.appendChild(li2);
+        passwordInput.appendChild(li3);
+
         return false;
     }
 
-    warningEmailParagraph.textContent = '';
+    li1.textContent = '';
+    li2.textContent = '';
+    li3.textContent = '';
+
     return true;
 }
+
 
 const addNewUser = (firstName, lastName, email, password) => {
     user.push({
@@ -54,11 +70,7 @@ const addNewUser = (firstName, lastName, email, password) => {
     location.assign('/html/index.html');
 }
 
-const checkFullName = (firstName, lastName) => {
-    const regExUser = /^[a-zA-z]+$/;
-    console.log(`first name: ${firstName} ${regExUser.test(firstName)}`);
-    console.log(`last name: ${lastName} ${regExUser.test(lastName)}`);
-}
+
 
 userSignUp.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -71,14 +83,16 @@ userSignUp.addEventListener('submit', (e) => {
 
     checkFullName(firstName, lastName);
 
-
-    let passwordResult = comparePasswords(password, confirmedPassword);
     let checkedUser = checkIfUserExits(email);
+    let passwordRegexValue = checkPasswordRegex(password);
+    let passwordResult = comparePasswords(password, confirmedPassword);
 
-    // console.log(`password-result: ${passwordResult}, available-user:${checkedUser}`)
-    if (passwordResult && checkedUser) {
+    if (passwordResult && checkedUser && passwordRegexValue) {
         addNewUser(firstName, lastName, email, password);
     }
 });
 
-
+//TODO
+   //ensure name passes regex condition
+//------themes------
+    //change password conditions (li) to green or red to correspond with correct or incorrect condtions 
