@@ -18,9 +18,10 @@ const checkIfUserExits = (email) => {
 }
 
 const checkFullName = (firstName, lastName) => {
-    const regExUser = /^[a-zA-z]+$/;
-    console.log(`first name: ${firstName} ${regExUser.test(firstName)}`);
-    console.log(`last name: ${lastName} ${regExUser.test(lastName)}`);
+    const regExNames = /^[a-zA-z]+$/;
+    const firstNameTest = regExNames.test(firstName);
+    const lastNameTest = regExNames.test(lastName);
+
 }
 
 
@@ -77,7 +78,7 @@ userSignUp.addEventListener('submit', (e) => {
 
     const firstName = e.target.elements.firstName.value;
     const lastName = e.target.elements.lastName.value;
-    const email = e.target.elements.email.value;
+    const email = e.target.elements.email.value.toLowerCase();
     const password = e.target.elements.password.value;
     const confirmedPassword = e.target.elements.confirmedPassword.value;
 

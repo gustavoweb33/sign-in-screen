@@ -2,6 +2,11 @@ const userSignUp = document.querySelector('#sign-up-form');
 const emailTitle = document.querySelector('.email');
 const passwordInput = document.querySelector('.password');
 const secondPassword = document.querySelector('.confirmed-password');
+const firstNameInput = document.querySelector('.first-name');
+const lastNameInput = document.querySelector('.last-name');
+const nameErrorMessage = document.createElement('p');
+nameErrorMessage.textContent = 'Only letters allowed';
+nameErrorMessage.style.fontSize = '14px';
 
 
 const li1 = document.createElement('li');
